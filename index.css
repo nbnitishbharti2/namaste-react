@@ -47,3 +47,9 @@
   height: 150px;
   object-fit: cover;
 }
+
+.filter-btn {
+  margin: 10px 25px;
+  cursor: pointer;
+  padding: 5px 10px;
+}

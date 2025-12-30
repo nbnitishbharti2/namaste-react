@@ -157,3 +157,38 @@ Passing some data to the component is known as props. props is an object in rece
 
 #Config driven UI
 Based on the config the UI should render. Suppose we need to show red color background at some location & green at other location.
+
+
+***** Episode-05 | Let's Get Hooked *****
+
+Two types of Export/Import
+
+export default Component;
+import Component from "path";
+
+- Named Export/Import
+import { Component } from "path";
+
+# React Hooks
+(Normal JS utility function)
+ - useState() - To create state variables
+ Whenever the state variable changes React rerendered the component.
+
+#Reconcilation algorithm
+Whenever React have any UI it will create virtual DOM. Virtual DOM is represantation of actual DOM. Virtual DOM is nothing but a JS object.
+
+reconciliation
+The algorithm React uses to diff one tree with another to determine which parts need to be changed.
+
+update
+
+A change in the data used to render a React app. Usually the result of `setState`. Eventually results in a re-render.
+
+#Diff algorithm -
+Diff algorithm finds out the Difference between two Virtual DOMs. Once it will find out the difference then update the actual DOM.
+
+React fibre (Came in React 16) - updated version of Diff algorithm
+
+ - useEffects() - 
+
+
