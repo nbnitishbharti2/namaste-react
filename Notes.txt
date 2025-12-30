@@ -1,0 +1,68 @@
+# NPM - npm is a package manager for the JavaScript programming language maintained by npm, Inc., a subsidiary of GitHub. npm is the default package manager for the JavaScript runtime environment Node.js and is included as a recommended feature in the Node.js installer.
+
+# npm init - commnd for creting package.json
+
+# It will sk for some detils & generte the package.json file.
+
+# package.json - It's configurtion file for the JS project like Rect, ngulr, Vue & Node & NPM to manage packages & dependencies. Keeps an approx version of dependencies.
+
+
+# Bundler - A JavaScript bundler is a tool that puts your code and all its dependencies together in one JavaScript file. There are many of them out there these days, being the most popular ones browserify and webpack, parcel, vite.
+
+
+# There re two types of dependencies we cn install. 
+1. Dev dependencies - It is generlly reuire in development phse.
+
+2. Prod dependencies - It is norml dependency which moved to Production.
+
+
+# npm install -D parcel - Instll for dev dependency only
+
+# parcel - Its module bundler just like webpack & vite to combine ll the files & generte  single file for Production.
+
+# caret(^) and tilde(~) in package.json
+
+~version “Approximately equivalent to version”, will automatically update you to all future patch versions that are backwards-compatible, without incrementing the minor version. ~1.2.3 will use releases from 1.2.3 to < 1.3.0.
+
+^version “Compatible with version”, will automatically update you to all future minor/patch versions that are backwards-compatible, without incrementing the major version. ^1.2.3 will use releases from 1.2.3 to < 2.0.0.
+
+# package-lock.json - Keep the track of exact version of the dependencies. 
+
+# integrity - integrity is basically a hash sha512. This hash is because to verify whatever is on my dev machine is matching the same version which is deployed on server.
+
+# dependencies inside package-lock.json - 
+
+# The package(parcel) has its own dependencies & its comes under this. & downloaded inside node_modules.
+
+# node_modules = contains all the code that we fetched from NPM. It consists diffenent packages which reuired inside the project & its collection of dependencies.
+
+# npx parcel index.html 
+
+# npx is used for executing a package.
+
+# CDN links is not a good way to include React into your project. Why? because fetching from CDN links is a costly operation. So, the better way to include it using NPM in your project.
+
+# Parcel
+
+- Dev build
+- Local server
+- HMR = Hot module replacement (for refreshing the page instantaly)
+- File watching algorithm (written in C++)
+- Catching - Faster builds
+- Image optimiation
+- Minification
+- Bundling
+- Compressing files
+- Consistent hashing
+- Code splitting
+- Differential Bundling - (To support old browsers)
+- Diagnostic
+- Error handling
+- Https
+- Tree shaking - (remove unused code)
+- Different build for dev & Prod
+- 
+
+Parcel is not doing everything by its own. Its dependent on the different packages.
+
+browserslist - Its makes the website old browsers compatible. Its a npm package which is used by Parcel. You can configure it through composer.json file.
