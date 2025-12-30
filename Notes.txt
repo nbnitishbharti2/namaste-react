@@ -121,5 +121,39 @@ Component composition.
 
 # JSX will sanitie the data before rendering to prevent Cross site scripts. 
 
-#Difference between React Element & React Component??
+# Difference between React Element & React Component??
 
+While a React element is a plain object describing a part of the UI, a React component is a function or a class that can produce React elements and manage their state and lifecycle. Components can return multiple elements, components, strings, numbers, or any other types React can render.
+
+
+How to think building an app??
+Frontend Presprective
+#Planning
+
+Name 
+UI Mock
+Plan Layout
+Wireframes
+
+// Components
+Header
+ - Logo
+ - Nav Items
+Body
+ - Search bar
+ - Restarant Container
+  - Restarant Card
+    - Image
+    - Name of Res, Star Rating, cuisine, delivery time
+Footer
+ - Copyright
+ - Links
+ - Address
+ - Contact
+
+
+#Props
+Passing some data to the component is known as props. props is an object in receiving component. It's just a JS object.
+
+#Config driven UI
+Based on the config the UI should render. Suppose we need to show red color background at some location & green at other location.
