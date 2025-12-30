@@ -66,3 +66,94 @@
 Parcel is not doing everything by its own. Its dependent on the different packages.
 
 browserslist - Its makes the website old browsers compatible. Its a npm package which is used by Parcel. You can configure it through composer.json file.
+
+
+You can create the development run command through adding it into package.json scripts object.
+
+Like start, build, jest.
+
+& then run the command through npm run start or npm run build.
+
+
+Conversion
+#React.createElement => React Element JS Object => HTMLElement(render)
+
+React.createElement - is not the HTML element its an object. When we render this to DOM then it becomes then it will become HTML.
+
+
+root.render() - It will replace the content inside the root element not root append.
+
+# JSX - JSX is a JS syntax which merges HTML & JS together.
+
+JSX is not HTML inside JS. Its HTML or XML like syntax.
+
+#JSX is a valid JS??
+
+No - JSX is not a valid JS because JS is which is JS engine understands. & JS engine understands ECMAScript. If you just try to run it inside browser will throw syntax error.
+
+
+Conversion
+#JSX => React.createElement => React Element JS Object => HTMLElement(render)
+
+Then how it is working? SO the module bundler like webpack & parcel transpiled the code into JS before sending to JS engine. & then JS engine is received the code what its understands.
+
+Parcel is not doing directly this for you. Actually Babel is doing this transpilation.
+
+Babel takes the JSX & convert it.
+
+If you have to add attribute to JSX you need to use camelCase.
+
+If you have to write the multiline jSX then you need to add it inside middle or round bracket. So, Babel will understands where it starting & ending.
+
+// React Component
+
+// Class based component - OLD
+
+// Functional component - NEW
+
+// React Functional component is just a JS function. Which returns some JSX element.
+
+
+#Component composition
+Component composition is a technique for building complex components from simpler ones.
+In simpler words ccombining two or more components to building complex components is called
+Component composition.
+
+# JSX will sanitie the data before rendering to prevent Cross site scripts. 
+
+# Difference between React Element & React Component??
+
+While a React element is a plain object describing a part of the UI, a React component is a function or a class that can produce React elements and manage their state and lifecycle. Components can return multiple elements, components, strings, numbers, or any other types React can render.
+
+
+How to think building an app??
+Frontend Presprective
+#Planning
+
+Name 
+UI Mock
+Plan Layout
+Wireframes
+
+// Components
+Header
+ - Logo
+ - Nav Items
+Body
+ - Search bar
+ - Restarant Container
+  - Restarant Card
+    - Image
+    - Name of Res, Star Rating, cuisine, delivery time
+Footer
+ - Copyright
+ - Links
+ - Address
+ - Contact
+
+
+#Props
+Passing some data to the component is known as props. props is an object in receiving component. It's just a JS object.
+
+#Config driven UI
+Based on the config the UI should render. Suppose we need to show red color background at some location & green at other location.
