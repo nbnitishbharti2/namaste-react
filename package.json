@@ -4,7 +4,8 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "start": "npm run start",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Nitish",
