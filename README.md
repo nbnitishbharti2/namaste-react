@@ -87,13 +87,13 @@ root.render() - It will replace the content inside the root element not root app
 
 JSX is not HTML inside JS. Its HTML or XML like syntax.
 
-#JSX is a valid JS??
+# JSX is a valid JS??
 
 No - JSX is not a valid JS because JS is which is JS engine understands. & JS engine understands ECMAScript. If you just try to run it inside browser will throw syntax error.
 
 
 Conversion
-#JSX => React.createElement => React Element JS Object => HTMLElement(render)
+# JSX => React.createElement => React Element JS Object => HTMLElement(render)
 
 Then how it is working? SO the module bundler like webpack & parcel transpiled the code into JS before sending to JS engine. & then JS engine is received the code what its understands.
 
@@ -114,7 +114,7 @@ If you have to write the multiline jSX then you need to add it inside middle or 
 // React Functional component is just a JS function. Which returns some JSX element.
 
 
-#Component composition
+# Component composition
 Component composition is a technique for building complex components from simpler ones.
 In simpler words ccombining two or more components to building complex components is called
 Component composition.
@@ -174,24 +174,21 @@ import { Component } from "path";
  - useState() - To create state variables
  Whenever the state variable changes React rerendered the component.
 
-#Reconcilation algorithm
+# Reconcilation algorithm
 Whenever React have any UI it will create virtual DOM. Virtual DOM is represantation of actual DOM. Virtual DOM is nothing but a JS object.
 
-reconciliation
+# Reconciliation
 The algorithm React uses to diff one tree with another to determine which parts need to be changed.
 
 update
 
-A change in the data used to render a React app. Usually the result of `setState`. Eventually results in a re-render.
+# A change in the data used to render a React app. Usually the result of `setState`. Eventually results in a re-render.
 
-#Diff algorithm -
+# Diff algorithm -
 Diff algorithm finds out the Difference between two Virtual DOMs. Once it will find out the difference then update the actual DOM.
 
-React fibre (Came in React 16) - updated version of Diff algorithm
-
+# React fibre (Came in React 16) - updated version of Diff algorithm
  - useEffects() - 
-
-
 
 ***** Monolith & Microservice *****
 
@@ -202,7 +199,7 @@ React fibre (Came in React 16) - updated version of Diff algorithm
 All the services talk to each other.
 
 
-There are two ways to fetch the data.
+# There are two ways to fetch the data.
 
 1. page load
 2. Render the UI quickly. Now we will make api call & once we get the data & then rerender the page.
@@ -230,4 +227,46 @@ Where the page not reloads on URL change. Fast. Client side routing.
  - Client side routing
  - Server side routing
 
-*****   *****
+***** Class Based component  *****
+ - It extends the React.Component from React. at the end its a simple JS class.
+
+ - When a class in intiantiated then first the constructor is called & then the render method of the class is called.
+
+ - Order of life cycle method in class component
+ - constructor
+ - render
+ - componentDidMount - We make api calls inside this because we try to render the component first & then make the api call & then render the data. We don't want to wait for data.
+ * Wrong 
+ - Incase of multiple childs
+ Parent - constructor
+ Parent - render
+  - Nitish Class constructor
+  - Nitish Class render
+  - Nitish Class componentDidMount
+
+  - Nitish Class 2 constructor
+  - Nitish Class 2 render
+  - Nitish Class 2 componentDidMount
+
+ * Correct Order - React will batch the render & commit phase for optimization
+ - Parent - constructor
+ - Parent - render
+
+  - Nitish Class constructor
+  - Nitish Class render
+
+  - Nitish Class 2 constructor
+  - Nitish Class 2 render
+
+  <<<< DOM Updated - In single Batch >>>>
+  
+  - Nitish Class componentDidMount
+  - Nitish Class 2 componentDidMount
+
+ - Parent - componentDidMount
+
+- React has 2 phases 
+ 1. Render phase - (constructor & render)
+ 2. Commit phase - (componentDidMount, componentDidUpdate, componentWillUnmount)
+
+ - componentWillUnmount - called when we are leaving pages.
