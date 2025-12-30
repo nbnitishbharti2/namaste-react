@@ -192,3 +192,21 @@ React fibre (Came in React 16) - updated version of Diff algorithm
  - useEffects() - 
 
 
+
+#Monolith & Microservice
+
+# Monolith => A big project with different module like API, Auth, Email.
+
+# Microservice => Different modules developed inside seperate projects & all combined to fullfill all the reuirements. It is also known as seperation of concern & single responsbility principle.  
+
+All the services talk to each other.
+
+
+There are two ways to fetch the data.
+
+1. page load
+2. Render the UI quickly. Now we will make api call & once we get the data & then rerender the page.
+
+useEffect - will run once the component rendered. 
+
+Why local variable is not working in React like states?
