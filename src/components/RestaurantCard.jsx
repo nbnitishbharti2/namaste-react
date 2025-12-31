@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
+import restaurantLogo from "url:../../public/restaurant.jpg";
 const RestaurantCard = ({ resData }) => {
   const { restaurantID, restaurantName, address, type, parkingLot } = resData;
   return (
-    <div className="res-card">
+    <div className="m-4 p-4 w-full sm:w-[250px] bg-blue-200 rounded-lg shadow-lg shadow-amber-900 hover:bg-blue-300 hover:scale-105 transition-all duration-300">
       <img
-        className="res-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/37e31a5f-6dc1-4ef2-8a9f-67d075111a4e_16865.JPG"
+        className="w-full h-[180px] object-cover rounded-lg"
+        src={restaurantLogo}
         alt="res logo"
       />
-      <h3>
+      <h3 className="font-bold mt-4 text-lg truncate">
         <Link to={"/restaurant/" + restaurantID}>{restaurantName}</Link>
       </h3>
-      <h5>{address}</h5>
-      <h5>{type}</h5>
-      <h5>{parkingLot}</h5>
+      <h5 className="mt-2 text-gray-700">📌 {address}</h5>
+      <h5 className="mt-1 text-gray-700">🍽️ {type}</h5>
+      <h5 className="mt-1 font-semibold">
+        {"🅿 "}
+        {parkingLot ? "Parking Available" : "No Parking"}
+      </h5>
     </div>
   );
 };
