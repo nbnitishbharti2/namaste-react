@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LOGO_URL } from "../utils/constants";
+import logo from "url:../../logo.png";
 import { useState, useEffect } from "react";
 const Header = () => {
   // Never create useState outside of Functional component
@@ -18,12 +18,13 @@ const Header = () => {
   console.log("Header called");
 
   return (
-    <div className="header">
+    <div className="header flex justify-between items-center px-5 mb-5 shadow-lg shadow-slate-100">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="logo image" />
+        {/* In some bundler setups, image imports return an object with a default property containing the path */}
+        <img className="w-30" src={logo} alt="logo image" />
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="flex gap-10">
           <li>
             <Link to="/">Home</Link>
           </li>
