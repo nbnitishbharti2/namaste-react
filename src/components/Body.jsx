@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RESTAURANTS_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -10,23 +10,22 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const isOnline = useOnlineStatus();
 
+  const PromotedRestaurantCard = WithPromotedLabel(RestaurantCard);
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(RESTAURANTS_URL);
-    const res = await data.json();
+    let res = await data.json();
+    res = res.map((restaurant) => ({
+      ...restaurant,
+      promoted: Math.random() > 0.7,
+    }));
     setRestaurantList(res);
     setFilteredRestaurant(res);
   };
-
-  // const filterTopRestaurant = () => {
-  //   let filteredRestaurant = restaurantList.filter(
-  //     (res) => res.info.avgRating > 4.5
-  //   );
-  //   setFilteredRestaurant([...filteredRestaurant]);
-  // };
 
   const handleSearch = () => {
     let filteredRestaurant = restaurantList.filter((res) =>
@@ -40,9 +39,9 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search m-4 p-4">
+    <div className="body mx-12">
+      <div className="filter mx-2">
+        <div className="search p-4">
           <input
             type="text"
             id="search-input"
@@ -63,9 +62,14 @@ const Body = () => {
       ) : (
         <div className="mx-auto flex flex-wrap gap-5 justify-center">
           {filteredRestaurant &&
-            filteredRestaurant.map((res, index) => (
-              <RestaurantCard key={res?.restaurantID} resData={res} />
-            ))}
+            filteredRestaurant.map((res) =>
+              // If the restaurant is promoted then we need to show the promotion label to it.
+              res?.promoted ? (
+                <PromotedRestaurantCard key={res?.restaurantID} resData={res} />
+              ) : (
+                <RestaurantCard key={res?.restaurantID} resData={res} />
+              )
+            )}
         </div>
       )}
     </div>

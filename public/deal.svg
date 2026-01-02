@@ -1,0 +1,40 @@
+<svg
+    width="240"
+    height="240"
+    viewBox="0 0 240 240"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="Deal of day badge"
+>
+    <polygon
+    points="120,25 145,75 200,75 160,115 175,175 120,145 65,175 80,115 40,75 95,75"
+    fill="#eefdf3"
+    stroke="#cfe8d8"
+    stroke-width="4"
+    stroke-linejoin="round"
+    />
+    <text
+    x="120"
+    y="100"
+    text-anchor="middle"
+    font-family="Inter, Segoe UI, Arial, Helvetica, sans-serif"
+    font-weight="700"
+    font-size="24"
+    fill="#0d1a12"
+    letter-spacing="0.5"
+    >
+    Deal
+    </text>
+    <text
+    x="120"
+    y="125"
+    text-anchor="middle"
+    font-family="Inter, Segoe UI, Arial, Helvetica, sans-serif"
+    font-weight="700"
+    font-size="24"
+    fill="#0d1a12"
+    letter-spacing="0.5"
+    >
+    of day
+    </text>
+</svg>

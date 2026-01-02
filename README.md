@@ -13,6 +13,7 @@ Welcome to my learning journey with **Namaste React** series! This repository do
 - [Episode 08: Let's Get Classy](#episode-08--lets-get-classy)
 - [Episode 09: Optimizing our App](#episode-09--optimizing-our-app)
 - [Episode 10: Formatting UI (Tailwind)](#episode-10--formatting-ui-tailwind)
+- [Episode 11: Data is the New Oil](#episode-11--data-is-the-new-oil)
 
 ---
 
@@ -183,3 +184,129 @@ Break down the main bundle into smaller chunks for performance.
 - A utility-first CSS framework.
 - Rapidly build UIs without leaving your HTML.
 - **Why use it?** No dedicated CSS files, standard classes, responsive by default.
+
+## Episode 11 | Data is the New Oil
+
+### Higher Order Components (HOC)
+
+- A function that takes a component and returns a new component.
+- Used to share common functionality between components.
+- It will take a component as an argument and add some additional functionality to it and return a new component.
+
+```javascript
+const HOC = (WrappedComponent) => {
+  return (props) => {
+    return (
+      <div>
+        <label htmlFor="">Promoted</label>
+        <WrappedComponent {...props} />
+      </div>
+    );
+  };
+};
+```
+
+**Benefits:**
+
+- Code Reusability.
+- Centralized logic sharing.
+
+### Lifting state up
+
+- When we want to share the state between the parent and child components.
+- When we want to share the state between the multiple child components.
+- When we want to share the state between the multiple parent and child components.
+
+- Then we move the local state to the parent component and pass it to the child components as props.
+
+**Benefits:**
+
+- Code Reusability.
+- Centralized logic sharing.
+
+**Drawbacks:**
+
+- Unnecessary code duplication & re-renderings.
+
+### Props Drilling
+
+- When we want to share the state between the multiple parent and child components.
+- Then we move the local state to the parent component and pass it to the child components as props.
+
+**Benefits:**
+
+- Code Reusability.
+- Centralized logic sharing.
+
+**Drawbacks:**
+
+- Unnecessary prop drilling.
+- Unnecessary code duplication & re-renderings.
+
+### Context API
+
+- When we want to share the state between the multiple parent and child components.
+- Then we move the local state to the context and so, we can access it from any component.
+- Without prop drilling.
+
+**Benefits:**
+
+- Avoid prop drilling.
+- Avoid unnecessary code duplication & re-renderings.
+- Centralized logic sharing.
+
+**Drawbacks:**
+
+- Not Optimized for very large applications.
+
+** createContext()**
+
+- It creates a context.
+- It returns a context object.
+- It is used to create a context.
+- It can take initial state as an argument.
+
+```javascript
+const Context = createContext(initialState);
+```
+
+** useContext()**
+
+- It returns the context value.
+- It is used to access the context value.
+- It can take context as an argument.
+
+```javascript
+const contextValue = useContext(Context);
+```
+
+** Provider**
+
+- It is used to provide the context value to the components.
+- It can take context and value as an argument.
+
+```javascript
+<Context.Provider value={value}>
+  <Component />
+</Context.Provider>
+```
+
+- How to pass the context value to the components?
+- We can pass the context value to the components using the Provider component.
+- We can pass methods to the context value to the components using the Provider component.
+
+```javascript
+<Context.Provider value={{ state, setState }}>
+  <Component />
+</Context.Provider>
+```
+
+** Consumer**
+
+- It is used to consume the context value.
+- It can take context as an argument.
+- In Class Components, we can use Consumer to consume the context value because we can't use hooks in class components.
+
+```javascript
+<Context.Consumer>{(value) => <Component value={value} />}</Context.Consumer>
+```
